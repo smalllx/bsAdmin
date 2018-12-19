@@ -63,12 +63,12 @@
             	<input type="text" class="layui-input" id="test1" name="addTime" required lay-verify="required"  autocomplete="off">
             </div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <div id="img_div">
                 <input type="file" id="img_upload">
                 <img id="picture" src="" alt="头像" class="img-rounded">
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
@@ -112,12 +112,12 @@
 	        	fAttr = [];
 	            //layer.msg(JSON.stringify(data.field));
 	            //console.log(JSON.stringify(data.field))
-                var file=$("#img_upload")[0].files[0];
-                console.log(file)
-                if(file==null)
-                    return;
-                var fileData=new FormData();
-                fileData.append('file',file);
+                //var file=$("#img_upload")[0].files[0];
+                //console.log(file)
+                //if(file==null)
+                //   return;
+                //var fileData=new FormData();
+                //fileData.append('file',file);
 	            var formdata = data.field;
 	           	$.each($('input:checkbox'),function(){
 	                if(this.checked){
@@ -138,8 +138,8 @@
 				    data:formdata,
 				    dataType: "json",
 				    success: function(msg) {
-				        layer.msg("添加成功！",{"icon":6})
-                        // location.reload();
+				        layer.msg("添加成功！",{"icon":6,"time":2000})
+                        parent.location.reload();
 						parent.layer.close(index);
 				    },
 				    error: function() {

@@ -81,11 +81,11 @@ layui.use('table', function() {
                     url: baseURL + '/delete',
                     dataType: "json",
                     success: function(msg) {
-                        layer.msg('删除成功！',{'icon':6,'delay':1000})
+                        layer.msg('删除成功！',{'icon':6,'time':1000})
                         console.log(msg)
                         if(msg.success){
                             obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
-                            location.reload();
+                            parent.location.reload();
                             layer.close(index);
                         }
                     },
@@ -137,9 +137,6 @@ $.ajax({
                 success:function(layero,index){
                     var iframe = window['layui-layer-iframe'+index];
                     iframe.getid(childdata,index);          //向弹出层传递参数
-                },
-                end: function () {
-                    location.reload();
                 }
             });
         })
@@ -156,9 +153,6 @@ $.ajax({
                 success:function(layero,index){
                     var iframe = window['layui-layer-iframe'+index];
                     iframe.getdata(childdata,index);          //向弹出层传递参数
-                },
-                end: function () {
-                    location.reload();
                 }
             });
         })
